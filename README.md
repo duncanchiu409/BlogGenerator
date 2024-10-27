@@ -1,0 +1,2 @@
+# BlogGenerator
+Alaas generating Blogs
