@@ -3,6 +3,7 @@ package main
 import (
 	"blogAI/master"
 	"blogAI/server"
+	"blogAI/utils"
 	"net/http"
 	"sync"
 	"time"
@@ -65,7 +66,7 @@ func (l *LinearizabilityChecker) rescheduler() {
 
 func main() {
 	go func() {
-		master.InitCustomLogger()
+		utils.InitCustomLogger("Server")
 		m := master.NewMaster()
 		for m.Done() == false {
 			time.Sleep(time.Second)

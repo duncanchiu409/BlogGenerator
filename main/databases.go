@@ -30,6 +30,11 @@ func main() {
 		utils.ErrorLog.Fatal(err)
 	}
 
+	err = blogs.Delete("5f6730bb-5d75-4441-896f-c1705f35d73f")
+	if err != nil {
+		utils.ErrorLog.Println(err)
+	}
+
 	utils.InfoLog.Printf("id: %v", resultBlog.Id)
 	utils.InfoLog.Printf("title: %v", resultBlog.Title)
 	utils.InfoLog.Printf("content: %v", resultBlog.Content)

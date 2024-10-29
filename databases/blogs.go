@@ -53,6 +53,16 @@ func (b *Blogs) Retreive(id string) (*Blog, error) {
 	return &newBlog, nil
 }
 
+func (b *Blogs) Delete(id string) error {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	_, err := b.db.Exec(`DELETE FROM blogs WHERE id=?`, id)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func NewBlogs(file string) (*Blogs, error) {
 	db, err := sql.Open("sqlite3", file)
 	if err != nil {
